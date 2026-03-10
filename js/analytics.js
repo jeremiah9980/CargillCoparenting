@@ -1,4 +1,4 @@
-const GA_ID = "G-XXXXXXXX";
+const GA_ID = "G-139L5HHEPH";
 
 var script = document.createElement("script");
 script.async = true;
