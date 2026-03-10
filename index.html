@@ -1,34 +1,73 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Cargill Coparenting Dashboard</title>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FH3CY8GLPJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-FH3CY8GLPJ');
+</script>
+<title>AI Investigation Dashboard</title>
 <link rel="stylesheet" href="assets/style.css">
-
-<script src="js/analytics.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="js/app.js"></script>
-
 </head>
 
 <body>
 
-<nav class="sidebar">
-  <h2>Cargill Dashboard</h2>
-  <a href="index.html">Home</a>
-  <a href="overview.html">Overview</a>
-  <a href="cargilltable.html">Cargill Table</a>
-  <a href="masterdataset.html">Dataset</a>
-</nav>
+<div class="layout">
+
+<div class="sidebar">
+<h2>Investigation</h2>
+<a href="#overview">Overview</a>
+<a href="#upload">Dataset Upload</a>
+<a href="#analysis">Run Analysis</a>
+<a href="#timeline">Timeline</a>
+<a href="#reports">Reports</a>
+<a href="cargilltable.html">Cargill Table</a>
+    <a href="masterdataset.html">Master Dataset</a>
+</div>
 
 <div class="main">
 
-<h1>Cargill Coparenting Investigation Dashboard</h1>
+<div class="panel">
+<h1>AI Investigation Dashboard</h1>
+<p>Automated family communication analysis platform.</p>
+</div>
 
-<p>
-This dashboard organizes communication records, incident timelines,
-and analytical views of the Cargill coparenting dataset.
-</p>
+<div id="upload" class="panel">
+<h2>Upload Dataset</h2>
+<input type="file">
+</div>
+
+<div id="analysis" class="panel">
+<h2>Run AI Analysis</h2>
+<button onclick="runAnalysis()">Run Investigation</button>
+<p id="status"></p>
+
+<h3>AI Findings</h3>
+
+<b>ChatGPT</b>
+<pre id="chatgpt"></pre>
+
+<b>Grok</b>
+<pre id="grok"></pre>
+
+<b>Gemini</b>
+<pre id="gemini"></pre>
+
+</div>
+
+<div class="panel">
+<h2>Consensus Risk Scores</h2>
+<canvas id="consensusChart"></canvas>
+</div>
+
+</div>
 
 </div>
 
