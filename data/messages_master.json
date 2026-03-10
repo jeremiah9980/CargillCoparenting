@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2025-01-01",
+    "sender": "Jesica",
+    "text": "Example message"
+  },
+  {
+    "timestamp": "2025-01-02",
+    "sender": "Jeremiah",
+    "text": "Response message"
+  }
+]
