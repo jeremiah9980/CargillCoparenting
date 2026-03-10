@@ -1,0 +1,32 @@
+{
+  "dataset_metadata": {
+    "dataset_name": "Cargill Family Communication Review",
+    "version": "1.0",
+    "created_date": "2026-03-09",
+    "objective": "Analyze communication patterns and provide non-biased recommendations in the best interest of the children.",
+    "platform_targets": [
+      "OpenAI-ChatGPT",
+      "X-Grok",
+      "Google-Gemini"
+    ],
+    "analysis_scope": [
+      "role clarity",
+      "family tier alignment",
+      "communication boundaries",
+      "triangulation",
+      "escalation patterns",
+      "child impact",
+      "communication recommendations"
+    ],
+    "framework_name": "Family Table Priority Model"
+  },
+  "tiers": {
+    "tier_1": "Primary family responsible for the children",
+    "tier_2": "Close kin connected to the family unit",
+    "tier_3": "External adults with no blood or family tie"
+  },
+  "participants": [],
+  "conversations": [],
+  "messages": [],
+  "incidents": []
+}

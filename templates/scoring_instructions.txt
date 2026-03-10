@@ -1,0 +1,18 @@
+Score each category from 1 to 10.
+
+1 = severe dysfunction or major misalignment
+10 = strongly aligned and healthy
+
+Categories:
+- clarity of roles
+- boundary respect
+- communication transparency
+- escalation control
+- child-centered communication
+- fragmentation risk
+- triangulation risk
+- logistics clarity
+- overall communication health
+- family table alignment
+
+For each score, provide a brief explanation grounded in the dataset.

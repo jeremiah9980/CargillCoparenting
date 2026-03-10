@@ -1,0 +1,6 @@
+participant_id,display_name,role,relationship_to_children,family_tier,notes
+P001,Jere,Father,Father,Tier 1,
+P002,Deanna,Mother,Mother,Tier 1,
+P003,Jesica,Step-parent/Spouse,Step-parent,Tier 1,
+P004,Stephanie,Associated Adult,No direct parental role,Tier 3,
+P005,Sharon,Associated Adult,No direct parental role,Tier 3,

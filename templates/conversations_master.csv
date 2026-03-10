@@ -1,0 +1,6 @@
+conversation_id,conversation_type,title,participants,start_date,end_date,source,children_related,notes
+C001,group,"Jere + Deanna","P001|P002",,,AppClose,yes,
+C002,group,"Jesica + Deanna","P003|P002",,,Text Export,yes,
+C003,group,"Jesica + Deanna + Jere","P003|P002|P001",,,Mixed,yes,
+C004,group,"Jesica + Stephanie","P003|P004",,,Text Export,possibly,
+C005,group,"Jesica + Sharon","P003|P005",,,Text Export,possibly,

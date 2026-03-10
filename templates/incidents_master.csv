@@ -1,0 +1,2 @@
+incident_id,date_range_start,date_range_end,incident_type,summary,related_conversation_ids,related_message_ids,children_impacted,severity_level,notes
+I001,2026-01-01,2026-01-02,communication_breakdown,"Example incident summary",C001,M000001,yes,medium,

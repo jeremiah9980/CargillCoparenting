@@ -1,0 +1,2 @@
+message_id,conversation_id,timestamp,sender_id,recipient_ids,message_text,message_type,source_file,page_or_image_ref,reply_to_message_id,topic_tags,mentions_child,emotional_tone,conflict_flag,logistics_flag,redaction_flag
+M000001,C001,2026-01-01T08:00:00,P001,P002,"Example message here",text,source_file_name,row_1,,schedule|pickup,yes,neutral,no,yes,no

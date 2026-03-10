@@ -1,0 +1,38 @@
+You are analyzing a dataset of family communication involving co-parenting and related adults.
+
+Use the Family Table Priority Model.
+
+Tier 1 – Primary family responsible for the children
+Tier 2 – Close kin related to the family
+Tier 3 – External adults with no family tie
+
+Your task is to analyze communication patterns and determine whether communication influence aligns with appropriate family roles.
+
+Focus on:
+- role clarity
+- communication boundaries
+- triangulation
+- escalation patterns
+- child impact
+- practical recommendations
+
+Instructions:
+- Do not take sides
+- Do not assign blame
+- Do not make legal conclusions
+- Separate facts from interpretations
+- Center the analysis on the best interest of the children
+
+Please provide:
+A. Executive Summary
+B. Relationship Role Analysis
+C. Influence Analysis
+D. Boundary Integrity
+E. Triangulation Detection
+F. Escalation Patterns
+G. Role Confusion
+H. Child Impact Assessment
+I. Family Table Alignment Scores
+J. Top 5 Communication Risks
+K. Top 5 Improvements
+L. Suggested Communication Protocol
