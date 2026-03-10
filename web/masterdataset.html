@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FH3CY8GLPJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FH3CY8GLPJ');
+</script>
+  <meta charset="utf-8">
+  <title>Master Dataset Purpose</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+  <div class="sidebar">
+    <h2>Investigation</h2>
+    <a href="overview.html">Overview</a>
+    <a href="index.html">Dashboard</a>
+    <a href="cargilltable.html">Cargill Table</a>
+    <a href="masterdataset.html">Master Dataset</a>
+  </div>
+
+  <div class="main">
+    <div class="panel">
+      <h1>Cross-Platform AI Analysis Dataset</h1>
+      <h2>1) Master Dataset Purpose</h2>
+      <p>
+        This dataset is designed to allow three different AI systems to review the same underlying communication records
+        and produce comparable outputs about:
+      </p>
+      <ul>
+        <li>communication patterns</li>
+        <li>escalation points</li>
+        <li>co-parenting coordination issues</li>
+        <li>emotional tone</li>
+        <li>child-centered recommendations</li>
+        <li>non-biased suggestions for improving the situation</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>2) Recommended Folder Structure</h2>
+      <pre>AI_Communication_Review/
+│
+├── 01_Raw_Exports/
+│   ├── AppClose_Export/
+│   ├── iPhone_Text_Exports/
+│   ├── Screenshots/
+│   └── Other_Threads/
+│
+├── 02_Normalized_Data/
+│   ├── messages_master.csv
+│   ├── conversations_master.csv
+│   ├── participants_master.csv
+│   └── incidents_master.csv
+│
+├── 03_AI_Input_Packets/
+│   ├── packet_chatgpt.json
+│   ├── packet_grok.json
+│   └── packet_gemini.json
+│
+├── 04_Prompts/
+│   ├── standard_prompt.txt
+│   ├── scoring_instructions.txt
+│   └── output_template.txt
+│
+└── 05_AI_Outputs/
+    ├── chatgpt_output.md
+    ├── grok_output.md
+    └── gemini_output.md</pre>
+    </div>
+
+    <div class="panel">
+      <h2>3) Core Tables</h2>
+
+      <h3>A. participants_master.csv</h3>
+      <p>Each person in the communication dataset gets one row.</p>
+      <pre>participant_id,display_name,role,relationship_to_children,notes
+P001,Jere,Father,Father,"Primary participant"
+P002,Deanna,Mother,Mother,"Co-parent"
+P003,Jesica,Stepparent/Spouse,Step-parent,"Married to Jere"
+P004,Stephanie,Other Adult,Associated Adult,"Included in communications"
+P005,Sharon,Other Adult,Associated Adult,"Included in communications"</pre>
+      <table class="table">
+        <thead><tr><th>Field</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>participant_id</td><td>unique ID</td></tr>
+          <tr><td>display_name</td><td>name shown in dataset</td></tr>
+          <tr><td>role</td><td>father, mother, spouse, step-parent, grandparent, third party, etc.</td></tr>
+          <tr><td>relationship_to_children</td><td>relation to the children</td></tr>
+          <tr><td>notes</td><td>optional context</td></tr>
+        </tbody>
+      </table>
+
+      <h3>B. conversations_master.csv</h3>
+      <p>One row per thread or conversation.</p>
+      <pre>conversation_id,conversation_type,title,participants,start_date,end_date,source,children_related,notes
+C001,group,"Jere + Deanna","P001|P002",2025-01-01,2026-03-01,"AppClose",yes,"Primary co-parent thread"
+C002,group,"Jesica + Deanna","P003|P002",2025-01-01,2026-03-01,"Text Export",yes,"Secondary coordination thread"
+C003,group,"Jesica + Stephanie","P003|P004",2025-01-01,2026-03-01,"Text Export",possibly,"Contextual thread"
+C004,group,"Jesica + Sharon","P003|P005",2025-01-01,2026-03-01,"Text Export",possibly,"Contextual thread"
+C005,group,"Jesica + Deanna + Jere","P003|P002|P001",2025-01-01,2026-03-01,"AppClose/Text",yes,"Multi-party thread"</pre>
+      <table class="table">
+        <thead><tr><th>Field</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>conversation_id</td><td>unique thread ID</td></tr>
+          <tr><td>conversation_type</td><td>one_to_one, group, appclose, sms, screenshot</td></tr>
+          <tr><td>title</td><td>readable label</td></tr>
+          <tr><td>participants</td><td>pipe-delimited participant IDs</td></tr>
+          <tr><td>start_date / end_date</td><td>conversation time range</td></tr>
+          <tr><td>source</td><td>AppClose, iPhone export, screenshot, etc.</td></tr>
+          <tr><td>children_related</td><td>yes / no / possibly</td></tr>
+          <tr><td>notes</td><td>optional context</td></tr>
+        </tbody>
+      </table>
+
+      <h3>C. messages_master.csv</h3>
+      <p>This is the main table. One row per message.</p>
+      <pre>message_id,conversation_id,timestamp,sender_id,recipient_ids,message_text,message_type,source_file,page_or_image_ref,reply_to_message_id,topic_tags,mentions_child,emotional_tone,conflict_flag,logistics_flag,redaction_flag
+M000001,C001,2025-06-01T08:14:00,P001,P002,"I’ll pick Kassidy up after practice at 6:00.",text,"appclose_export_01.csv","row_224",,pickup|schedule,yes,neutral,no,yes,no
+M000002,C001,2025-06-01T08:20:00,P002,P001,"That’s fine.",text,"appclose_export_01.csv","row_225",M000001,confirmation,yes,neutral,no,yes,no
+M000003,C005,2025-06-02T19:05:00,P003,"P002|P001","We need better communication about school stuff.",text,"thread_jesica_deanna_jere.pdf","p12",,communication|school,yes,tense,yes,no,no</pre>
+      <table class="table">
+        <thead><tr><th>Field</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>message_id</td><td>unique ID</td></tr>
+          <tr><td>conversation_id</td><td>source thread reference</td></tr>
+          <tr><td>timestamp</td><td>ISO format</td></tr>
+          <tr><td>sender_id</td><td>participant ID of sender</td></tr>
+          <tr><td>recipient_ids</td><td>pipe-delimited recipients</td></tr>
+          <tr><td>message_text</td><td>exact message text</td></tr>
+          <tr><td>message_type</td><td>text, image_caption, attachment_note, system_event</td></tr>
+          <tr><td>source_file</td><td>original source name</td></tr>
+          <tr><td>page_or_image_ref</td><td>page, row, screenshot ref</td></tr>
+          <tr><td>reply_to_message_id</td><td>optional parent message</td></tr>
+          <tr><td>topic_tags</td><td>schedule, pickup, medical, school, conflict, discipline, etc.</td></tr>
+          <tr><td>mentions_child</td><td>yes/no</td></tr>
+          <tr><td>emotional_tone</td><td>neutral, supportive, tense, accusatory, defensive, cooperative</td></tr>
+          <tr><td>conflict_flag</td><td>yes/no</td></tr>
+          <tr><td>logistics_flag</td><td>yes/no</td></tr>
+          <tr><td>redaction_flag</td><td>yes/no</td></tr>
+        </tbody>
+      </table>
+
+      <h3>D. incidents_master.csv</h3>
+      <p>Use this to identify meaningful events or themes across many messages.</p>
+      <pre>incident_id,date_range_start,date_range_end,incident_type,summary,related_conversation_ids,related_message_ids,children_impacted,severity_level,notes
+I001,2025-06-01,2025-06-03,communication_breakdown,"Misalignment regarding schedule coordination",C001|C005,M000001|M000003,yes,medium,"Useful for AI summary comparison"
+I002,2025-07-10,2025-07-11,escalation,"Tone escalated during co-parenting discussion",C001,M000120|M000124|M000129,yes,high,"Potential trigger-pattern analysis"</pre>
+      <table class="table">
+        <thead><tr><th>Field</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>incident_id</td><td>unique incident reference</td></tr>
+          <tr><td>date_range_start / date_range_end</td><td>time window</td></tr>
+          <tr><td>incident_type</td><td>schedule issue, escalation, triangulation, miscommunication, child logistics, school, medical, boundary issue</td></tr>
+          <tr><td>summary</td><td>plain-language description</td></tr>
+          <tr><td>related_conversation_ids</td><td>conversation references</td></tr>
+          <tr><td>related_message_ids</td><td>message references</td></tr>
+          <tr><td>children_impacted</td><td>yes/no</td></tr>
+          <tr><td>severity_level</td><td>low, medium, high</td></tr>
+          <tr><td>notes</td><td>optional context</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>4) Standardized JSON Packet for All 3 AI Platforms</h2>
+      <p>Use one shared JSON format so each AI sees the same exact information.</p>
+      <pre>{
+  "dataset_metadata": {
+    "dataset_name": "Co-Parent Communication Review",
+    "version": "1.0",
+    "created_date": "2026-03-08",
+    "objective": "Analyze communication patterns and provide non-biased recommendations in the best interest of the children.",
+    "platform_targets": ["OpenAI-ChatGPT", "X-Grok", "Google-Gemini"],
+    "analysis_scope": [
+      "communication patterns",
+      "misunderstandings",
+      "escalation triggers",
+      "co-parenting effectiveness",
+      "child-centered recommendations"
+    ]
+  },
+  "participants": [
+    {"participant_id": "P001", "display_name": "Jere", "role": "Father"},
+    {"participant_id": "P002", "display_name": "Deanna", "role": "Mother"},
+    {"participant_id": "P003", "display_name": "Jesica", "role": "Spouse/Step-parent"},
+    {"participant_id": "P004", "display_name": "Stephanie", "role": "Associated Adult"},
+    {"participant_id": "P005", "display_name": "Sharon", "role": "Associated Adult"}
+  ],
+  "conversations": [
+    {"conversation_id": "C001", "title": "Jere + Deanna", "participants": ["P001", "P002"], "children_related": true},
+    {"conversation_id": "C002", "title": "Jesica + Deanna", "participants": ["P003", "P002"], "children_related": true}
+  ],
+  "messages": [
+    {
+      "message_id": "M000001",
+      "conversation_id": "C001",
+      "timestamp": "2025-06-01T08:14:00",
+      "sender_id": "P001",
+      "recipient_ids": ["P002"],
+      "message_text": "I’ll pick Kassidy up after practice at 6:00.",
+      "topic_tags": ["pickup", "schedule"],
+      "mentions_child": true,
+      "emotional_tone": "neutral",
+      "conflict_flag": false
+    }
+  ],
+  "incidents": [
+    {
+      "incident_id": "I001",
+      "incident_type": "communication_breakdown",
+      "summary": "Misalignment regarding pickup scheduling",
+      "related_message_ids": ["M000001"]
+    }
+  ]
+}</pre>
+    </div>
+
+    <div class="panel">
+      <h2>5) Standard Analysis Prompt for All 3 Platforms</h2>
+      <pre>You are reviewing a structured communication dataset involving co-parenting and related family communications.
+
+Your task is to provide a neutral, non-biased analysis focused on the best interest of the children.
+
+Please analyze the dataset and provide the following:
+
+1. Key communication patterns
+2. Repeated misunderstandings or failure points
+3. Escalation triggers
+4. Signs of productive vs. unproductive communication
+5. Whether communication appears centralized or fragmented
+6. Potential risks to child stability caused by adult communication patterns
+7. Non-biased recommendations for improvement
+8. A child-centered communication strategy
+9. A severity ranking of the top 5 communication issues
+10. A concise executive summary
+
+Important instructions:
+- Do not take sides
+- Do not make legal conclusions
+- Do not assume facts not present in the data
+- Distinguish clearly between facts, patterns, and interpretations
+- Focus on practical recommendations that improve communication and reduce conflict for the children
+
+Use this response structure:
+
+A. Executive Summary
+B. Key Patterns
+C. Escalation Triggers
+D. Child Impact Risks
+E. Top 5 Communication Issues Ranked by Severity
+F. Recommendations
+G. Suggested Communication Protocol</pre>
+    </div>
+
+    <div class="panel">
+      <h2>6) Scoring Sheet for Easier Comparison Between Platforms</h2>
+      <pre>After completing the narrative analysis, score the following categories from 1 to 5:
+
+1 = very low / minimal issue
+5 = very high / severe issue
+
+Categories:
+- Communication fragmentation
+- Misinterpretation risk
+- Emotional escalation risk
+- Child-centeredness of communication
+- Clarity of logistics communication
+- Presence of triangulation risk
+- Transparency between adults
+- Overall communication health
+
+Then provide a brief reason for each score.</pre>
+    </div>
+
+    <div class="panel">
+      <h2>7) Output Comparison Template</h2>
+      <pre>Platform:
+Date Run:
+Dataset Version:
+
+A. Executive Summary
+
+B. Key Patterns Identified
+
+C. Escalation Triggers
+
+D. Child Impact Risks
+
+E. Top 5 Communication Issues Ranked by Severity
+1.
+2.
+3.
+4.
+5.
+
+F. Scores
+- Communication fragmentation:
+- Misinterpretation risk:
+- Emotional escalation risk:
+- Child-centeredness:
+- Logistics clarity:
+- Triangulation risk:
+- Transparency:
+- Overall communication health:
+
+G. Recommendations
+
+H. Suggested Communication Protocol</pre>
+    </div>
+
+    <div class="panel">
+      <h2>8) Best Practices for Fair Cross-Platform Analysis</h2>
+      <ul>
+        <li>use the same exported data</li>
+        <li>use the same cleaned dataset</li>
+        <li>use the same prompt</li>
+        <li>use the same output template</li>
+        <li>do not add extra commentary to one platform and not the others</li>
+        <li>keep names and thread labels consistent</li>
+        <li>redact sensitive info the same way across all versions</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>9) Minimal CSV Headers You Can Start With Immediately</h2>
+      <pre>participants_master.csv
+participant_id,display_name,role,relationship_to_children,notes
+
+conversations_master.csv
+conversation_id,conversation_type,title,participants,start_date,end_date,source,children_related,notes
+
+messages_master.csv
+message_id,conversation_id,timestamp,sender_id,recipient_ids,message_text,message_type,source_file,page_or_image_ref,reply_to_message_id,topic_tags,mentions_child,emotional_tone,conflict_flag,logistics_flag,redaction_flag
+
+incidents_master.csv
+incident_id,date_range_start,date_range_end,incident_type,summary,related_conversation_ids,related_message_ids,children_impacted,severity_level,notes</pre>
+    </div>
+
+    <div class="panel">
+      <h2>10) Recommended Conversation Groups to Include</h2>
+      <ul>
+        <li>Jesica, Deanna, Jere</li>
+        <li>Jere, Deanna</li>
+        <li>Jesica, Deanna</li>
+        <li>Jesica, Stephanie</li>
+        <li>Jesica, Sharon</li>
+        <li>AppClose export</li>
+      </ul>
+      <p>That gives you one unified structure while preserving each thread separately.</p>
+    </div>
+
+    <div class="panel">
+      <h2>11) Simple Example of How to Label Raw Sources</h2>
+      <pre>SRC001 = AppClose export
+SRC002 = Jere-Deanna text export
+SRC003 = Jesica-Deanna text export
+SRC004 = Jesica-Deanna-Jere group thread
+SRC005 = Jesica-Stephanie thread
+SRC006 = Jesica-Sharon thread</pre>
+      <p>Then reference the source in messages_master.csv.</p>
+    </div>
+
+    <div class="panel">
+      <h2>12) What You’ll Hand Each AI Platform</h2>
+      <ul>
+        <li>the same JSON packet</li>
+        <li>the same standard prompt</li>
+        <li>the same scoring instructions</li>
+        <li>the same output template</li>
+      </ul>
+      <p>That gives you a much cleaner apples-to-apples comparison.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
