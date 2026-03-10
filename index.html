@@ -1,32 +1,8 @@
-Cargill Family Communication Analysis Framework
-A structured framework for analyzing family communication patterns using multiple AI platforms.
 
-Platforms supported:
-
-OpenAI ChatGPT
-X Grok
-Google Gemini
-Family First Principle
-This project organizes communication roles using a Family Table Model where:
-
-Tier 1 – Primary family responsible for the children
-Tier 2 – Close kin connected to the family
-Tier 3 – External adults with no family tie
-The goal is clarity of roles, communication boundaries, and improved stability for the children.
-
-Project Purpose
-This framework allows:
-
-normalized communication datasets
-cross‑platform AI analysis
-neutral recommendations
-identification of triangulation and escalation patterns
-Documentation
-Use the Submission Guide for instructions on submitting the dataset to AI platforms.
-
-Family First • Cargill Communication Analysis Framework
-
-<!-- Google tag (gtag.js) -->
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FH3CY8GLPJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -35,3 +11,65 @@ Family First • Cargill Communication Analysis Framework
 
   gtag('config', 'G-FH3CY8GLPJ');
 </script>
+<title>AI Investigation Dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js"></script>
+</head>
+
+<body>
+
+<div class="layout">
+
+<div class="sidebar">
+<h2>Investigation</h2>
+<a href="#overview">Overview</a>
+<a href="#upload">Dataset Upload</a>
+<a href="#analysis">Run Analysis</a>
+<a href="#timeline">Timeline</a>
+<a href="#reports">Reports</a>
+<a href="cargilltable.html">Cargill Table</a>
+    <a href="masterdataset.html">Master Dataset</a>
+</div>
+
+<div class="main">
+
+<div class="panel">
+<h1>AI Investigation Dashboard</h1>
+<p>Automated family communication analysis platform.</p>
+</div>
+
+<div id="upload" class="panel">
+<h2>Upload Dataset</h2>
+<input type="file">
+</div>
+
+<div id="analysis" class="panel">
+<h2>Run AI Analysis</h2>
+<button onclick="runAnalysis()">Run Investigation</button>
+<p id="status"></p>
+
+<h3>AI Findings</h3>
+
+<b>ChatGPT</b>
+<pre id="chatgpt"></pre>
+
+<b>Grok</b>
+<pre id="grok"></pre>
+
+<b>Gemini</b>
+<pre id="gemini"></pre>
+
+</div>
+
+<div class="panel">
+<h2>Consensus Risk Scores</h2>
+<canvas id="consensusChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
