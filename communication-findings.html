@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cargill Co-Parenting | Communication Findings</title>
+  <meta name="description" content="Structured communication findings, timeline highlights, and child-impact concerns for the Cargill Co-Parenting site." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121a2b;
+      --text:#eef4ff;
+      --muted:#a9b8d1;
+      --accent:#6ea8fe;
+      --accent-2:#8be9fd;
+      --good:#8dd694;
+      --warn:#ffd166;
+      --soft:#dfe9ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(110,168,254,.18), transparent 26%),
+        linear-gradient(180deg, #08101d 0%, #0b1220 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(8,16,29,.72);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner {
+      display: flex; gap: 16px; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand { font-weight: 800; letter-spacing: .3px; }
+    .brand span { color: var(--accent); }
+    .nav { display: flex; flex-wrap: wrap; gap: 14px; font-size: .95rem; }
+    .hero { padding: 64px 0 28px; }
+    .eyebrow {
+      display: inline-block; padding: 8px 12px; border-radius: 999px;
+      border: 1px solid rgba(110,168,254,.25);
+      background: rgba(110,168,254,.08);
+      color: var(--accent-2); font-weight: 700; font-size: .84rem;
+    }
+    h1 {
+      margin: 18px 0 14px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08; letter-spacing: -.03em;
+    }
+    .lead {
+      max-width: 860px; color: var(--soft); font-size: 1.08rem; margin: 0 0 20px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 46px; padding: 0 16px; border-radius: 12px;
+      border: 1px solid transparent; font-weight: 700; transition: .18s ease;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #4f8cff); color: white; box-shadow: var(--shadow); }
+    .btn-secondary { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.12); color: var(--text); }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .section { padding: 26px 0; }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .panel.pad { padding: 24px; }
+    .grid { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .stat, .card {
+      padding: 22px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+    }
+    .stat .label { color: var(--muted); font-size: .9rem; margin-bottom: 8px; }
+    .stat .value { font-size: 1.1rem; font-weight: 800; }
+    h2 { font-size: clamp(1.35rem, 2.2vw, 2rem); margin: 0 0 14px; letter-spacing: -.02em; }
+    h3 { margin: 0 0 10px; font-size: 1.05rem; }
+    .muted { color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .flag {
+      display: inline-block; padding: 6px 10px; border-radius: 999px; font-size: .78rem; font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .flag-blue { background: rgba(110,168,254,.14); color: var(--accent-2); border: 1px solid rgba(110,168,254,.26); }
+    .flag-yellow { background: rgba(255,209,102,.12); color: var(--warn); border: 1px solid rgba(255,209,102,.24); }
+    .flag-green { background: rgba(141,214,148,.12); color: var(--good); border: 1px solid rgba(141,214,148,.24); }
+    .timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+    .timeline::before {
+      content: ""; position: absolute; left: 14px; top: 10px; bottom: 10px; width: 2px;
+      background: linear-gradient(180deg, rgba(110,168,254,.65), rgba(255,255,255,.12));
+    }
+    .timeline li { position: relative; padding: 0 0 18px 42px; }
+    .timeline li::before {
+      content: ""; position: absolute; left: 8px; top: 6px; width: 14px; height: 14px;
+      border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(110,168,254,.15);
+    }
+    .timeline .date { font-weight: 800; color: var(--accent-2); margin-bottom: 4px; }
+    .quote {
+      border-left: 4px solid rgba(110,168,254,.45);
+      padding: 14px 16px; margin-top: 14px; color: var(--soft);
+      background: rgba(110,168,254,.06); border-radius: 0 12px 12px 0;
+    }
+    .divider {
+      height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      margin-top: 10px;
+    }
+    .note, .footer { color: var(--muted); }
+    .footer { padding: 34px 0 54px; font-size: .93rem; }
+    @media (max-width: 860px) {
+      .grid-2, .grid-3, .cards { grid-template-columns: 1fr; }
+      .topbar-inner { align-items: flex-start; flex-direction: column; }
+      .hero { padding-top: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">Cargill<span>CoParenting</span></div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#summary">Summary</a>
+        <a href="#drivers">Conflict Drivers</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#impact">Child Impact</a>
+        <a href="#findings">Findings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Structured Communication Review</div>
+        <h1>Observed communication patterns, escalation points, and child-impact concerns.</h1>
+        <p class="lead">
+          This page is designed as a clean, court-style summary of communication dynamics reflected in post-remarriage exchanges,
+          AppClose records, and related direct-message periods. It keeps the focus on patterns, escalation behavior,
+          and the effect of repeated adult conflict on child-centered coordination.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#findings">View Key Findings</a>
+          <a class="btn btn-secondary" href="#timeline">Go to Timeline</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2>Executive Summary</h2>
+          <p>
+            The overall communication pattern reflects a high-conflict co-parenting dynamic in which child logistics frequently
+            become vehicles for broader adult conflict. Practical issues such as rent, reimbursement, pickups, school, therapy,
+            extracurricular boundaries, and after-school care repeatedly expand into accusations, motive attribution,
+            character attacks, and third-party pressure.
+          </p>
+          <p>
+            The available record suggests one party more often appears to initiate or intensify emotionally charged exchanges,
+            while the other more often responds in a structured but sometimes adversarial way. The result is a cycle that
+            places children in proximity to adult stress rather than protecting them from it.
+          </p>
+          <div class="grid grid-3" style="margin-top:18px;">
+            <div class="stat">
+              <div class="label">Primary concern</div>
+              <div class="value">Child logistics repeatedly converted into adult conflict</div>
+            </div>
+            <div class="stat">
+              <div class="label">Observed pattern</div>
+              <div class="value">Escalation through accusation, pressure, rebuttal, and narrative control</div>
+            </div>
+            <div class="stat">
+              <div class="label">Core risk</div>
+              <div class="value">Children exposed to instability, loyalty pressure, and team-setting spillover</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="drivers">
+      <div class="wrap">
+        <h2>Observed Conflict Drivers</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="flag flag-blue">Driver 01</div>
+            <h3>Unilateral decision-making</h3>
+            <p class="muted">
+              Schedule and caregiving changes appear at times to be announced as settled rather than presented for coordination.
+              That structure tends to trigger defensive responses and make compromise harder.
+            </p>
+          </article>
+          <article class="card">
+            <div class="flag flag-blue">Driver 02</div>
+            <h3>Topic stacking</h3>
+            <p class="muted">
+              Single conversations often absorb multiple disputes at once: bills, school, therapy, pickups, possessions,
+              team boundaries, and personal grievances. This overwhelms the chance for narrow, child-focused resolution.
+            </p>
+          </article>
+          <article class="card">
+            <div class="flag flag-blue">Driver 03</div>
+            <h3>Emotionally loaded accusations</h3>
+            <p class="muted">
+              Practical issues frequently become moral arguments about selfishness, instability, abandonment, control,
+              or who is harming the children. Once motive attribution starts, communication quality sharply declines.
+            </p>
+          </article>
+          <article class="card">
+            <div class="flag flag-blue">Driver 04</div>
+            <h3>Third-party and child triangulation</h3>
+            <p class="muted">
+              References to what the children think, what coaches were told, what others will hear, or how others are reacting
+              can intensify conflict and pull the children closer to adult disputes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2>Key Timeline Highlights</h2>
+          <p class="muted">Replace or expand these entries with your final exhibit chronology as needed.</p>
+          <ul class="timeline">
+            <li>
+              <div class="date">Oct. 17–19, 2025</div>
+              <div>Direct-message escalation around remarriage, combined finances, housing stress, and demands for immediate payment responses.</div>
+            </li>
+            <li>
+              <div class="date">Oct. 31 – Nov. 5, 2025</div>
+              <div>AppClose exchanges reflect urgent rent and housing pressure, repeated emotional framing, and links between money compliance and harm to the children.</div>
+            </li>
+            <li>
+              <div class="date">Feb. 24 – Mar. 1, 2026</div>
+              <div>Communication-platform shift to AppClose followed by continued conflict over pickups, after-school care, and child-centered coordination.</div>
+            </li>
+            <li>
+              <div class="date">Mar. 14 – Mar. 21, 2026</div>
+              <div>Softball dugout boundary issues, coach involvement, and renewed conflict around team-setting participation and child exposure to adult tension.</div>
+            </li>
+          </ul>
+          <div class="quote">
+            “The core pattern is not one isolated argument. It is the repeated conversion of child logistics into broader adult conflict.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="wrap">
+        <h2>Child-Impact Concerns</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="flag flag-yellow">Concern</div>
+            <h3>Exposure to housing and money stress</h3>
+            <p class="muted">
+              Messaging that ties rent, Christmas, housing, or school stability directly to one parent’s actions can create fear
+              and emotional burden for children, especially if they are aware of the conflict.
+            </p>
+          </article>
+          <article class="card">
+            <div class="flag flag-yellow">Concern</div>
+            <h3>Loyalty pressure</h3>
+            <p class="muted">
+              Repeated framing of one parent as causing harm or choosing someone else over the children can force the child into
+              an internal loyalty conflict rather than allowing safe relationships with both sides.
+            </p>
+          </article>
+          <article class="card">
+            <div class="flag flag-yellow">Concern</div>
+            <h3>Activity-setting spillover</h3>
+            <p class="muted">
+              When softball, school pickup, or after-school care become arenas for adult conflict, the child loses the benefit
+              of a stable zone that should remain centered on routine and development.
+            </p>
+          </article>
+          <article class="card">
+            <div class="flag flag-yellow">Concern</div>
+            <h3>Documentation over dialogue</h3>
+            <p class="muted">
+              Once both parties communicate mainly to preserve a record, the child-related issue may technically be addressed
+              but the emotional atmosphere around the child can remain strained and unsettled.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="findings">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2>Communication Findings</h2>
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="flag flag-green">Observed Pattern</div>
+              <h3>Likely primary escalation behavior</h3>
+              <p class="muted">
+                One side more often appears to initiate or intensify conflict through emotionally charged accusations,
+                urgent pressure messaging, narrative control, and repeated references to the children’s distress
+                or living situation.
+              </p>
+              <ul>
+                <li>Pressure-based yes/no demands</li>
+                <li>Motive attribution and blame framing</li>
+                <li>References to third parties and what the children think</li>
+                <li>Difficulty keeping issues narrow and logistical</li>
+              </ul>
+            </div>
+            <div class="card">
+              <div class="flag flag-green">Observed Pattern</div>
+              <h3>Secondary escalation behavior</h3>
+              <p class="muted">
+                The other side more often appears to respond in a structured, corrective, or legalistic tone. That style can read
+                better in a record, but it does not always de-escalate and can prolong conflict when the exchange is already heated.
+              </p>
+              <ul>
+                <li>Formal rebuttal-style responses</li>
+                <li>Rule-based framing and decree references</li>
+                <li>Longer messages that answer conflict with counter-positioning</li>
+                <li>Containment attempts that sometimes become adversarial</li>
+              </ul>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <p style="margin-top:18px;">
+            <strong>Neutral takeaway:</strong> the communication record supports a conclusion that the larger problem is not a single disputed event,
+            but an entrenched pattern where child coordination repeatedly becomes a platform for unresolved adult conflict.
+            That pattern increases stress around school, extracurriculars, after-school care, and household stability.
+          </p>
+          <p class="note">
+            This page is best used as a summary layer above linked exhibits, transcript PDFs, timeline packets, and judge-facing memo downloads.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div><strong>CargillCoParenting</strong> • Communication Findings Page</div>
+      <div style="margin-top:8px;">
+        Add buttons here to your timeline packet, judge-facing summary, transcript exhibits, and PDF downloads.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
