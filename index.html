@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FH3CY8GLPJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,18 +10,14 @@
 
   gtag('config', 'G-FH3CY8GLPJ');
 </script>
-<title>AI Investigation Dashboard</title>
-<link rel="stylesheet" href="assets/style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/app.js"></script>
+  <meta charset="utf-8">
+  <title>Project Overview</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-
 <body>
-
 <div class="layout">
-
-<div class="sidebar">
-<h2>Investigation</h2>
+  <div class="sidebar">
+    <h2>Investigation</h2>
 <a href="#overview">Overview</a>
 <a href="#upload">Dataset Upload</a>
 <a href="#analysis">Run Analysis</a>
@@ -31,46 +26,165 @@
 <a href="cargilltable.html">Cargill Table</a>
 <a href="masterdataset.html">Master Dataset</a>
   </div>
+
+  <div class="main">
+    <div class="panel">
+      <h1 class="hero-title">Project Overview</h1>
+      <p>
+        This project combines a family-systems framework, a normalized master dataset, and a repeatable
+        multi-platform AI analysis process into one unified investigation dashboard.
+      </p>
+      <div>
+        <span class="badge">Family First</span>
+        <span class="badge">Cross-Platform AI</span>
+        <span class="badge">Structured Dataset</span>
+        <span class="badge">Repeatable Analysis</span>
+        <span class="badge">Child-Centered</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Overarching High-Level Vision</h2>
+      <p>
+        The high-level vision of the project is to create a disciplined, transparent, and comparable way to review
+        family communication patterns without relying on one person's interpretation alone.
+      </p>
+      <p>
+        Instead of informal impressions, the project turns message history into structured data, applies the same
+        questions to multiple AI platforms, and compares outputs side by side. The intended outcome is a clearer view
+        of communication roles, influence, conflict patterns, risks to child stability, and practical recommendations
+        for improving the system.
+      </p>
+      <p>
+        At its core, the project is built to keep the children as the priority, preserve role clarity, reduce
+        triangulation, and create a repeatable decision-support framework that is more neutral than isolated opinions
+        or fragmented message threads.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>How the Project Fits Together</h2>
+      <div class="callout-grid">
+        <div class="mini-card">
+          <h3>1. Cargill Table Framework</h3>
+          <p>
+            Defines the Family Table Priority Model and explains who sits at the table, who supports the table,
+            and who should remain outside core family decision-making.
+          </p>
+          <ul>
+            <li>Tier 1: Primary family</li>
+            <li>Tier 2: Close kin</li>
+            <li>Tier 3: External adults</li>
+          </ul>
+          <p><a href="cargilltable.html">Open Cargill Table page</a></p>
+        </div>
+
+        <div class="mini-card">
+          <h3>2. Master Dataset Design</h3>
+          <p>
+            Defines how raw message exports are normalized into participants, conversations, messages, incidents,
+            JSON packets, prompts, and comparable AI outputs.
+          </p>
+          <ul>
+            <li>Raw exports</li>
+            <li>Normalized CSV tables</li>
+            <li>Shared JSON packet</li>
+            <li>Standard prompts and scoring</li>
+          </ul>
+          <p><a href="masterdataset.html">Open Master Dataset page</a></p>
+        </div>
+
+        <div class="mini-card">
+          <h3>3. AI Comparison Workflow</h3>
+          <p>
+            Uses the same dataset, same prompt, same scoring system, and same output format for ChatGPT, Grok, and
+            Gemini so findings can be compared fairly.
+          </p>
+          <ul>
+            <li>Comparable inputs</li>
+            <li>Comparable questions</li>
+            <li>Comparable outputs</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>4. Dashboard + Automation</h3>
+          <p>
+            Brings the framework and dataset into one interface with upload tools, analysis runners, scoring views,
+            timelines, and exportable reports.
+          </p>
+          <ul>
+            <li>Investigation dashboard</li>
+            <li>Timeline and risk scoring</li>
+            <li>Exportable reporting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Core Project Objectives</h2>
+      <table class="table">
+        <thead>
+          <tr><th>Objective</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Clarify roles</td><td>Identify whether communication influence matches appropriate family roles.</td></tr>
+          <tr><td>Reduce triangulation</td><td>Expose indirect communication patterns that destabilize family coordination.</td></tr>
+          <tr><td>Detect escalation</td><td>Identify recurring conflict triggers, tone shifts, and destabilizing exchanges.</td></tr>
+          <tr><td>Protect child stability</td><td>Evaluate how adult communication may affect the children emotionally and practically.</td></tr>
+          <tr><td>Standardize analysis</td><td>Use the same inputs and questions across AI systems for fair comparison.</td></tr>
+          <tr><td>Support better decisions</td><td>Generate non-biased, child-centered recommendations for improvement.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>System Architecture at a Glance</h2>
+      <pre>Raw exports
+   ↓
+Normalized master dataset
+   ↓
+Shared JSON packet + standard prompt + scoring instructions
+   ↓
+ChatGPT / Grok / Gemini
+   ↓
+Side-by-side comparison
+   ↓
+Consensus scoring + dashboard views
+   ↓
+Reports, findings, and child-centered recommendations</pre>
+    </div>
+
+    <div class="panel">
+      <h2>Why This Approach Matters</h2>
+      <ul>
+        <li>It reduces reliance on one-sided interpretation.</li>
+        <li>It makes communication analysis more structured and reviewable.</li>
+        <li>It ties every conclusion back to shared data and shared prompts.</li>
+        <li>It keeps the project focused on family systems and the best interest of the children.</li>
+        <li>It creates a reusable model that can be updated as more communication data is added.</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <h2>Quick Navigation</h2>
+      <div class="callout-grid">
+        <a class="mini-card link-card" href="cargilltable.html">
+          <h3>Cargill Table Page</h3>
+          <p>Family Table Priority Framework, tiers, analysis questions, prompt, and project parameters.</p>
+        </a>
+        <a class="mini-card link-card" href="masterdataset.html">
+          <h3>Master Dataset Page</h3>
+          <p>Master dataset purpose, folder structure, tables, JSON packet, prompts, scoring, and outputs.</p>
+        </a>
+        <a class="mini-card link-card" href="index.html">
+          <h3>Dashboard</h3>
+          <p>Interactive investigation interface with analysis controls, scoring, and reporting features.</p>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="main">
-
-<div class="panel">
-<h1>AI Investigation Dashboard</h1>
-<p>Automated family communication analysis platform.</p>
-</div>
-
-<div id="upload" class="panel">
-<h2>Upload Dataset</h2>
-<input type="file">
-</div>
-
-<div id="analysis" class="panel">
-<h2>Run AI Analysis</h2>
-<button onclick="runAnalysis()">Run Investigation</button>
-<p id="status"></p>
-
-<h3>AI Findings</h3>
-
-<b>ChatGPT</b>
-<pre id="chatgpt"></pre>
-
-<b>Grok</b>
-<pre id="grok"></pre>
-
-<b>Gemini</b>
-<pre id="gemini"></pre>
-
-</div>
-
-<div class="panel">
-<h2>Consensus Risk Scores</h2>
-<canvas id="consensusChart"></canvas>
-</div>
-
-</div>
-
-</div>
-
 </body>
 </html>
