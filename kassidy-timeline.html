@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kassidy Timeline | Concerning Messages</title>
+  <meta name="description" content="Timeline page summarizing Kassidy timeline events and concerning messages from March 2." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121a2b;
+      --panel-2:#17233a;
+      --text:#eef4ff;
+      --muted:#a9b8d1;
+      --line:#2a3a58;
+      --accent:#6ea8fe;
+      --accent-2:#8be9fd;
+      --warn:#ffd166;
+      --danger:#ff8a8a;
+      --soft:#dfe9ff;
+      --radius:18px;
+      --shadow:0 10px 28px rgba(0,0,0,.26);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:
+        radial-gradient(circle at top right, rgba(110,168,254,.16), transparent 28%),
+        linear-gradient(180deg,#08101d 0%, #0b1220 100%);
+    }
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .topbar{
+      position:sticky;top:0;z-index:10;
+      background:rgba(8,16,29,.78);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .topbar-inner{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:14px 0;
+    }
+    .brand{font-weight:800;letter-spacing:.2px}
+    .brand span{color:var(--accent)}
+    .nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.95rem}
+    .hero{padding:60px 0 26px}
+    .eyebrow{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(110,168,254,.08);
+      border:1px solid rgba(110,168,254,.25);
+      color:var(--accent-2);
+      font-weight:700;
+      font-size:.84rem;
+    }
+    h1{
+      margin:16px 0 12px;
+      font-size:clamp(2rem,4vw,3.3rem);
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+    h2{
+      margin:0 0 14px;
+      font-size:clamp(1.35rem,2.2vw,2rem);
+      letter-spacing:-.02em;
+    }
+    h3{margin:0 0 10px;font-size:1.05rem}
+    .lead{
+      max-width:860px;
+      color:var(--soft);
+      font-size:1.06rem;
+      margin:0 0 20px;
+    }
+    .section{padding:24px 0}
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .pad{padding:24px}
+    .grid{display:grid;gap:18px}
+    .grid-2{grid-template-columns:repeat(2, minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3, minmax(0,1fr))}
+    .card{
+      padding:20px;
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .label{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+    .value{font-weight:800;font-size:1.06rem}
+    .timeline{
+      position:relative;
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    .timeline:before{
+      content:"";
+      position:absolute;
+      left:14px; top:8px; bottom:8px;
+      width:2px;
+      background:linear-gradient(180deg, rgba(110,168,254,.65), rgba(255,255,255,.12));
+    }
+    .timeline li{
+      position:relative;
+      padding:0 0 20px 42px;
+    }
+    .timeline li:before{
+      content:"";
+      position:absolute;
+      left:8px; top:6px;
+      width:14px; height:14px; border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(110,168,254,.14);
+    }
+    .date{font-weight:800;color:var(--accent-2);margin-bottom:4px}
+    .muted{color:var(--muted)}
+    .quote{
+      margin-top:14px;
+      padding:14px 16px;
+      border-left:4px solid rgba(255,138,138,.55);
+      background:rgba(255,138,138,.08);
+      border-radius:0 12px 12px 0;
+      color:var(--soft);
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:800;
+      margin-bottom:12px;
+      border:1px solid rgba(255,209,102,.28);
+      color:var(--warn);
+      background:rgba(255,209,102,.10);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.02);
+    }
+    th,td{
+      padding:12px 12px;
+      text-align:left;
+      vertical-align:top;
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    th{
+      background:rgba(255,255,255,.04);
+      color:var(--soft);
+      font-size:.93rem;
+    }
+    tr:last-child td{border-bottom:none}
+    .footer{
+      padding:34px 0 54px;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+    @media (max-width:860px){
+      .grid-2,.grid-3{grid-template-columns:1fr}
+      .topbar-inner{flex-direction:column;align-items:flex-start}
+      table, thead, tbody, th, td, tr{display:block}
+      thead{display:none}
+      tr{
+        margin-bottom:14px;
+        border-bottom:1px solid rgba(255,255,255,.08);
+      }
+      td{
+        border:none;
+        padding:8px 10px;
+      }
+      td:before{
+        content:attr(data-label);
+        display:block;
+        font-size:.82rem;
+        color:var(--muted);
+        margin-bottom:4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">Cargill<span>CoParenting</span></div>
+      <nav class="nav">
+        <a href="#summary">Summary</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#messages">Messages</a>
+        <a href="#concerns">Concerns</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Kassidy Timeline</div>
+        <h1>Timeline of routine changes and concerning March 2 messages.</h1>
+        <p class="lead">
+          This page turns the timeline into a clean, mobile-friendly exhibit-style view. It highlights the change in after-school routine,
+          the March 2 supervision timeline, and the concerning messages later that evening.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2>Summary</h2>
+          <p>
+            The timeline reflects a period where Jeremiah had been consistently handling pickups and practices, followed by a request
+            to move communication to AppClose, then a change in after-school routine involving Oly. On March 2, Kassidy was picked up
+            by Oly after school and remained at his house awaiting Deanna. Later that evening, a message exchange shows transportation
+            delay concerns, followed by a separate 7:15 PM exchange where Kassidy told Sky, “On some nights I just don’t want to be here anymore.”
+          </p>
+
+          <div class="grid grid-3" style="margin-top:18px;">
+            <div class="card">
+              <div class="label">Stability period</div>
+              <div class="value">Feb 11–24 pickups and practices handled consistently</div>
+            </div>
+            <div class="card">
+              <div class="label">Routine disruption</div>
+              <div class="value">After-school pickup changed to Oly beginning March 1–2</div>
+            </div>
+            <div class="card">
+              <div class="label">Key concern</div>
+              <div class="value">March 2 message indicating emotional distress</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2>Timeline of Events</h2>
+          <ul class="timeline">
+            <li>
+              <div class="date">Feb 11–24</div>
+              <div>Jere handled pickups and practices consistently to provide stability.</div>
+            </li>
+            <li>
+              <div class="date">Feb 24</div>
+              <div>Communication was requested to move to AppClose, and the subscription was covered.</div>
+            </li>
+            <li>
+              <div class="date">Feb 27</div>
+              <div>Deanna coordinated for both Oly and Jere to be present at pickup, creating a high-stress situation for Kassidy. A claimed dinner with Nana was later found not to be planned. Oly took Kassidy to Chick-fil-A, ran errands, then took her to his house.</div>
+            </li>
+            <li>
+              <div class="date">Feb 28</div>
+              <div>Deanna approached Jere at the softball game and initiated conflict, stating that Oly would now be the one picking Kassidy up and changing the after-school routine.</div>
+            </li>
+            <li>
+              <div class="date">Mar 1</div>
+              <div>Deanna resumed communication through AppClose and informed Jere of the new after-school pickup routine.</div>
+            </li>
+            <li>
+              <div class="date">Mar 2</div>
+              <div>First day of the new routine. At 3:00 PM, Oly picked Kassidy up, and she stayed at his house waiting for Deanna to get off work.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="messages">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2>March 2 Message Sequence</h2>
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="pill">Transportation / delay messages</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Sender</th>
+                    <th>Message</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Time">4:31 PM</td>
+                    <td data-label="Sender">Deanna</td>
+                    <td data-label="Message">You doing ok baby?</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">5:29 PM</td>
+                    <td data-label="Sender">Deanna</td>
+                    <td data-label="Message">I’m otw now</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">6:45 PM</td>
+                    <td data-label="Sender">Deanna</td>
+                    <td data-label="Message">Traffic is so bad. Idk what’s going on.</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">6:45 PM</td>
+                    <td data-label="Sender">Deanna</td>
+                    <td data-label="Message">My eta was 6:15 &amp; now it says 7:35</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">6:48 PM</td>
+                    <td data-label="Sender">Kassidy</td>
+                    <td data-label="Message">Ok</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">6:49 PM</td>
+                    <td data-label="Sender">Deanna</td>
+                    <td data-label="Message">I just want to get to you asap. 🥺</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">6:49 PM</td>
+                    <td data-label="Sender">Deanna</td>
+                    <td data-label="Message">I was asking Kinz to pick you up. Idk what she’s doing.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="card">
+              <div class="pill">Concerning 7:15 PM exchange</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Sender</th>
+                    <th>Message</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Kassidy</td>
+                    <td data-label="Message">No it not I know it not am sorry</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Sky</td>
+                    <td data-label="Message">It’s fine I am ok..</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Kassidy</td>
+                    <td data-label="Message">Sky can I tell you something</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Sky</td>
+                    <td data-label="Message">Yes.</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Kassidy</td>
+                    <td data-label="Message">On some nights I just don’t want to be here anymore</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Sky</td>
+                    <td data-label="Message">is very night for me boo.</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Sky</td>
+                    <td data-label="Message">Trust me ik what it’s like</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Time">7:15 PM</td>
+                    <td data-label="Sender">Sky</td>
+                    <td data-label="Message">You don’t thing I hate my life</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="quote">
+            Concerning message noted on page 2 of the source timeline: “On some nights I just don’t want to be here anymore.”
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="concerns">
+      <div class="wrap">
+        <div class="panel pad">
+          <h2>Observed Concern Areas</h2>
+          <div class="grid grid-2">
+            <div class="card">
+              <h3>Routine disruption</h3>
+              <p class="muted">
+                The timeline shows a shift from a more consistent pickup/practice structure into a changed after-school arrangement
+                involving third-party pickup and waiting at another house pending pickup.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Delayed reunification that evening</h3>
+              <p class="muted">
+                The March 2 message sequence reflects significant delay and uncertainty in when Deanna would reach Kassidy,
+                including an ETA moving from 6:15 to 7:35.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Stress exposure</h3>
+              <p class="muted">
+                The Feb. 27 and Feb. 28 entries describe a high-stress pickup environment and adult conflict around the softball setting
+                immediately before the routine change.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Emotional distress indicator</h3>
+              <p class="muted">
+                The later 7:15 PM exchange is the clearest concern point in the document and warrants careful contextual review
+                alongside surrounding communications and adult decision-making during that period.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div><strong>Kassidy Timeline HTML Page</strong></div>
+      <div style="margin-top:8px;">Built from the uploaded “Kass timeline” PDF.</div>
+    </div>
+  </footer>
+</body>
+</html>
